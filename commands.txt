@@ -1,0 +1,10 @@
+composer require --dev fakerphp/faker
+composer require --dev orm-fixtures
+symfony server:start -d
+symfony server:stop
+symfony console make:controller MovieController
+symfony console doctrine:database:create
+symfony console make:entity
+symfony console m:migration
+symfony console d:migration:migrate
+symfony console doctrine:fixtures:load --no-interaction
